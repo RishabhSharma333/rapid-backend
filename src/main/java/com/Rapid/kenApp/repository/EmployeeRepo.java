@@ -1,6 +1,6 @@
 package com.Rapid.kenApp.repository;
 
-import com.example.kenassignment.model.Employee;
+import com.Rapid.kenApp.model.Employee;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
