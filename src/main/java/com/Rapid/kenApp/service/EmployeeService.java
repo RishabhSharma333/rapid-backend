@@ -53,20 +53,11 @@ public class EmployeeService {
         employeeRepo.save(employee1);
     }
 
-    public void addEmployee(MultipartFile file,String first_name,String last_name,String contact,String email,String position,int salary,String dept) {
+    public void addEmployee(String imageFile,String first_name,String last_name,String contact,String email,String position,int salary,String dept) {
 
        Employee emp=new Employee();
 
-        String fileName = StringUtils.cleanPath(file.getOriginalFilename());
-        if(fileName.contains(".."))
-        {
-            System.out.println("not a a valid image file");
-        }
-        try {
-            emp.setImage(Base64.getEncoder().encodeToString(file.getBytes()));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        emp.setImage(imageFile);
         emp.setSalary(salary);
         emp.setPosition(position);
         emp.setFirst_name(first_name);

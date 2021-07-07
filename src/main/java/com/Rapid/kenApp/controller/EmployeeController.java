@@ -6,6 +6,7 @@ import com.Rapid.kenApp.model.LimitRequest;
 import com.Rapid.kenApp.model.PositionRequest;
 import com.Rapid.kenApp.service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -41,8 +42,9 @@ public class EmployeeController {
         return employeeService.getByLimit(limit);
     }
 
-    @PostMapping("/add")
-    public void addEmployee(@RequestParam("image") MultipartFile image, @RequestParam("first_name") String first_name, @RequestParam("last_name") String last_name, @RequestParam("contact_number") String contact_number, @RequestParam("department") String department, @RequestParam("position") String position, @RequestParam("salary") int salary, @RequestParam("email_address") String email_address) throws IOException {
+    @PostMapping(value="/add")
+    public void addEmployee(@RequestParam("image") String image, @RequestParam("first_name") String first_name,
+                            @RequestParam("last_name") String last_name, @RequestParam("contact_number") String contact_number, @RequestParam("department") String department, @RequestParam("position") String position, @RequestParam("salary") int salary, @RequestParam("email_address") String email_address) throws IOException {
 
         employeeService.addEmployee(image,first_name,last_name,contact_number,email_address,position,salary,department);
     }

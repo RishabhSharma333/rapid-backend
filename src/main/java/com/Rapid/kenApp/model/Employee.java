@@ -15,8 +15,6 @@ public class Employee {
     private String position;
     private String email_address;
     private String contact_number;
-    @Lob
-    @Column(columnDefinition = "MEDIUMBLOB")
     private String image;
 
     public String getImage() {
