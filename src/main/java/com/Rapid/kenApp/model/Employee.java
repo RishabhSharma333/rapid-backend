@@ -15,13 +15,15 @@ public class Employee {
     private String position;
     private String email_address;
     private String contact_number;
-    private String image;
+    @Lob
+    @Column(name = "picByte")
+    private  byte[] image;
 
-    public String getImage() {
+    public byte[] getImage() {
         return image;
     }
 
-    public void setImage(String image) {
+    public void setImage(byte[] image) {
         this.image = image;
     }
 
@@ -29,7 +31,7 @@ public class Employee {
 
     }
 
-    public Employee(String first_name, String last_name, Integer salary, String department, String position, String email_address, String contact_number, String image) {
+    public Employee(String first_name, String last_name, Integer salary, String department, String position, String email_address, String contact_number, byte[] image) {
         this.first_name = first_name;
         this.last_name = last_name;
         this.salary = salary;
